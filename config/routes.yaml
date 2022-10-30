@@ -1,0 +1,25 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+# kernel:
+#     resource: ../src/Kernel.php
+#     type: annotation
+# config/routes/attributes.yaml
+
+#app_home:
+    #path: /
+    # the controller value has the format 'controller_class::method_name'
+    #controller: App\Controller\HomeController::index
+    # if the action is implemented as the __invoke() method of the
+    # controller class, you can skip the '::method_name' part:
+    # controller: App\Controller\BlogController
+
+#app_start:
+    #path: /start
+    # the controller value has the format 'controller_class::method_name'
+    #controller: App\Controller\MainController::index
+
+    # if the action is implemented as the __invoke() method of the
+    # controller class, you can skip the '::method_name' part:
+    # controller: App\Controller\BlogController
