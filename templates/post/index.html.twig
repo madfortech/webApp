@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+<h1>
+see post result
+</h1>
+<br>
+<table class="table table-bordered border-primary">
+    <thead class="table-light">
+        <td>id</td>
+        <td>title</td>
+        <td>avatar</td>
+    </thead>
+    <tbody>
+       
+        <th>{{post.title}}</th>
+        <th>{{post.avatar}}</th>
+    </tbody>
+</table>
+{% endblock %}
