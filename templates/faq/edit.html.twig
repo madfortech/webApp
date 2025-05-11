@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Faq{% endblock %}
+
+{% block body %}
+
+<style>
+    .container {
+        display: flex;
+        gap: 20px;
+    }
+    @media screen and (max-width: 600px) {
+        .container {
+            flex-direction: column;
+        }
+        
+    }
+</style>
+     
+<div class="container mx-auto max-w-7xl py-6 px-4">
+   
+
+    <div class="item lg:w-3/6 py-6 px-4 border border-gray-300">
+        <h1 class="text-2xl font-bold mb-6">Edit Faq</h1>
+        {{ include('faq/_form.html.twig', {'button_label': 'Update'}) }}
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_faq_index') }}" class="bg-blue-500 capitalize hover:bg-blue-600 text-white px-5 py-2 rounded">back to faq list</a>
+        {% endif %}
+    </div>
+
+    <div class="item lg:w-3/6 py-6 px-4 border border-gray-300">
+       
+    </div>
+
+    
+</div>
+{% endblock %}

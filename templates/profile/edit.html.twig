@@ -1,0 +1,39 @@
+  <div class="mt-4">
+            
+            <div class="mb-4">
+                {% for message in app.flashes('success') %}
+                    <div class="bg-green-600 text-white px-4 py-2 rounded mb-2">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            {{ form_start(editProfileForm, {
+                attr: {
+                    class: 'bg-white border-2 w-full p-4 rounded-lg',
+                    method: 'POST',
+                    action: path('app_profile_edit', {'id': user.id})
+                }
+            }) }}
+            
+                <div class="mb-4">
+                    {{ form_label(editProfileForm.name, 'Name', {'label_attr': {'class': 'block mb-2'}}) }}
+
+                    {{ form_widget(editProfileForm.name, {attr: {class: 'bg-gray-200 border-2 w-full p-4 rounded-lg'}}) }}
+                </div>
+                {# Name #}
+
+                {# Email #}
+                <div class="mb-4">
+                    {{ form_label(editProfileForm.email, 'Email', {'label_attr': {'class': 'block mb-2'}}) }}
+
+                    {{ form_widget(editProfileForm.email, {attr: {class: 'bg-gray-200 border-2 w-full p-4 rounded-lg'}}) }}
+                </div>
+
+                {# Submit Button #}
+                <div class="mb-4">
+                    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">
+                        Update
+                    </button>
+                </div>
+            {{ form_end(editProfileForm) }}
+        </div>

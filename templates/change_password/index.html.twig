@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Change Password{% endblock %}
+
+{% block body %}
+ 
+<div class="lg:flex gap-[20px] container mx-auto py-6 px-4 border border-gray-300 max-w-7xl mt-4">
+
+  
+    <div data-controller="sidemenu" class="w-[200px]">
+        <h1 class="text-2xl font-bold py-2 px-4 border-b border-gray-300 mb-2">Settings</h1>
+        {% include 'sidebar/side-menu.html.twig' %}
+    </div>
+    <div class="lg:grow shrink-[10] order-1">
+         
+        {# Change Password Form  #}
+        <div class="mt-4">
+            
+            <div>
+                {% for message in app.flashes('success') %}
+                    <div class="bg-green-600 text-white px-4 py-2 rounded mb-2">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+             
+            {{ form_start(passwordUpdateForm) }}
+
+            <div class="mb-4">
+                {{ form_label(passwordUpdateForm.plainPassword.first) }}
+                {{ form_widget(passwordUpdateForm.plainPassword.first, {attr: {class: 'bg-gray-200 border-2 w-full p-4 rounded-lg'}}) }}
+            </div>
+            {# End Password Field #}
+
+            <div class="mb-4">
+                {{ form_label(passwordUpdateForm.plainPassword.second) }}
+                {{ form_widget(passwordUpdateForm.plainPassword.second, {attr: {class: 'bg-gray-200 border-2 w-full p-4 rounded-lg'}}) }}
+            </div>
+            {# End Password Field #}
+
+            {# Submit Button #}
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded w-full">
+                Update
+            </button>
+            {# End Submit Button #}
+            
+            {{ form_end(passwordUpdateForm) }}
+ 
+        </div>
+        {# End Change Password Form #}
+        
+       
+    </div>
+    <div class="lg:bg-gray-200 lg:w-[200px] w-[200px] h-[10vh]">
+        <h2 class="text-2xl font-bold py-2 px-4 border-b border-gray-300 mb-2">Change Password</h2>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Settings{% endblock %}
+
+{% block body %}
+ 
+<div class="lg:flex gap-[20px] container mx-auto py-6 px-4 border border-gray-300 max-w-7xl mt-4">
+
+  
+    <div data-controller="sidemenu" class="w-[200px]">
+        <h1 class="text-2xl font-bold py-2 px-4 border-b border-gray-300 mb-2">Settings</h1>
+        {% include 'sidebar/side-menu.html.twig' %}
+    </div>
+    {# <div class="grow shrink-[10] order-1 bg-gray-300">2</div>
+    <div class="bg-gray-200 w-[200px]">3</div> #}
+</div>
+{% endblock %}

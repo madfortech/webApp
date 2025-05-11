@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+ 
+<style>
+    .container {
+        display: flex;
+        gap: 20px;
+    }
+    @media screen and (max-width: 600px) {
+        .container {
+            flex-direction: column;
+        }
+        
+    }
+</style>
+
+<div class="container mx-auto max-w-7xl py-6 px-4">
+    <div class="item lg:w-3/6 py-6 px-4 border border-gray-300">
+        1
+    </div>
+    <div class="item lg:w-3/6 py-6 px-4 border border-gray-300">
+        2
+    </div>
+</div>
+
+ 
+
+{% endblock %}

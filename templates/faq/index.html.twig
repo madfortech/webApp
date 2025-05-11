@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faq{% endblock %}
+
+{% block body %}
+
+<style>
+    .container {
+        display: flex;
+        gap: 20px;
+    }
+    @media screen and (max-width: 600px) {
+        .container {
+            flex-direction: column;
+        }
+        
+    }
+</style>
+
+<div class="container mx-auto max-w-7xl py-6 px-4">
+    <div>
+        <h1 class="text-[20px] font-bold capitalize">frequently asked questions </h1>
+
+          <div id="accordion" data-controller="accordion" class="py-5 px-5">
+            {% for faq in faqs %}
+            <h3 class="text-[20px] font-bold">{{ faq.question }}</h3>
+            <div class="mb-5">
+              <p>
+              {{ faq.answer | raw }}
+             
+              </p>
+            
+              <div class="px-6 py-4">
+                {% if is_granted('ROLE_ADMIN') %}
+                  <span class="inline-block bg-green-500 px-3 py-1 text-lg mr-2 capitalize">
+                    <a href="{{ path('app_faq_edit', {'id': faq.id}) }}" class="text-white">edit</a>
+                  </span>
+                  <span class="inline-block bg-red-500 px-3 py-1 text-lg mr-2 capitalize">
+                    {{ include('faq/_delete_form.html.twig') }}
+                  </span>
+                {% endif %}
+              </div>
+             
+            </div>
+            {% endfor %}
+            
+          </div>
+     
+    </div>
+ 
+{% endblock %}

@@ -1,0 +1,27 @@
+<nav class="bg-gray-800 py-6 px-4 flex justify-between"> 
+    <div class="container mx-auto py-2">
+        <a href="/" class="text-white text-xl">
+            WebApp
+        </a>
+    </div>
+    
+    <div class="flex justify-end py-2 px-4 text-lg">
+        {% if app.user and is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('admin') }}" class="text-white mx-2">Admin</a>
+        {% endif %}
+        
+        {% if app.user %}
+            <a href= "{{ path('app_home') }}" class="text-white mx-2">Home</a>
+            <div class="text-white mx-2">
+                You are logged in as <span class="font-bold text-blue-500">{{ app.user.name }}</span>, 
+                <a href=" {{ path('app_logout') }}" class="text-white mx-2">Logout</a>
+            </div>
+            <a href= "{{ path('app_setting') }}" class="text-white mx-2">Settings</a>
+        {% else %}
+            <a href=" {{ path('app_login') }}" class="text-white mx-2">Login</a>
+        {% endif %}
+        <a href=" {{ path('app_faq_index') }}" class="text-white mx-2">FAQ</a>
+    </div>
+</nav>
+     
+ 

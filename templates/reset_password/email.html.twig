@@ -1,0 +1,35 @@
+<style>
+    .check_email {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+    .check_email_item {
+        width: 50%;
+    }
+    .check_email_item a {
+        color: #fff;
+        text-decoration: none;
+        background-color: #007bff;
+        padding: 10px;
+        border-radius: 5px;
+        text-transform: capitalize;
+    }
+ </style>
+
+<div class="check_email">
+    <div class="check_email_item">
+        <h1>Hi!</h1>
+
+        <p>To reset your password, please visit the following link</p>
+
+        <br>
+        <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+
+        <br>
+        <p>This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+
+        <br>
+        <p>Cheers!</p>
+    </div>
+</div>

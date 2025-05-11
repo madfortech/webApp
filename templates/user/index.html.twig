@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+ 
+<style>
+    .container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .item:nth-child(2) {
+    flex-grow: 1;
+    flex-shrink: 1;
+    order: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            flex-direction: column;
+        }
+        
+    }
+</style>
+
+
+<div class="flex gap-[20px] container mx-auto max-w-7xl py-6 px-4">
+    <div data-controller="sidemenu" class="w-[200px]">
+        <h1 class="text-2xl font-bold py-2 px-4 border-b border-gray-300 mb-2">Users</h1>
+        {% include 'sidebar/side-menu.html.twig' %}
+    </div>
+    <div class="grow shrink order-none lg:grid grid-cols-1 grid-flow-col gap-4">
+        
+        {# table #}
+        <div class="overflow-x-auto overflow-y-auto h-96 w-full">
+            <table class="table-auto border-slate-400 border-separate border-spacing-2 border">
+            <thead>
+              <tr>
+                <th class="border border-slate-400 px-2 py-2">Id</th>
+                <th class="border border-slate-400 px-2 py-2">Name</th>
+                <th class="border border-slate-400 px-2 py-2">Email</th>
+                <th class="border border-slate-400 px-2 py-2">Roles</th>
+                <th class="border border-slate-400 px-2 py-2">Created At</th>
+                <th class="border border-slate-400 px-2 py-2">Updated At</th>
+                <th class="border border-slate-400 px-2 py-2">Is verified</th>
+              </tr>
+            </thead>
+            {% for user in users %}
+            <tbody>
+              <tr>
+                <td class="border border-slate-400 px-2 py-2">{{ user.id }}</td>
+                <td class="border border-slate-400 px-2 py-2">{{ user.name }}</td>
+                <td class="border border-slate-400 px-2 py-2">{{ user.email }}</td>
+                <td class="border border-slate-400 px-2 py-2">{{ user.roles | join(', ') }}</td>
+                <td class="border border-slate-400 px-2 py-2">{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="border border-slate-400 px-2 py-2">{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="border border-slate-400 px-2 py-2">{{ user.isVerified ? 'Yes' : 'No' }}</td>
+              </tr>
+            </tbody>
+            {% endfor %}
+            </table>
+        </div>
+            {# End table #}
+    </div>
+</div>
+ 
+{% endblock %}

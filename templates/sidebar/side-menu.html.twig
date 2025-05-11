@@ -1,0 +1,23 @@
+ 
+
+<ul id="menu">
+    
+    <li class="py-2 px-4 border-b border-gray-300"><div class="py-2 px-4">My Account</div>
+      <ul class="py-2 px-4 border border-gray-300">
+        <li><a href="{{ path('app_profile') }}"> Profile</a></li>
+        <li><a href="{{ path('app_change_password') }}">Change Password</a></li>
+        <li><a href="{{ path('app_logout') }}">Logout</a></li>
+      </ul>
+    </li>
+
+    {% if app.user and is_granted('ROLE_ADMIN') %}
+    <li class="py-2 px-4 border-t border-gray-300"><div class="py-2 px-4">Faq</div>
+      <ul class="py-2 px-4 border border-gray-300">
+        <li><a href="{{ path('app_faq_new') }}"> Add Faq</a></li>
+       
+      </ul>
+    </li>
+    {% endif %}    
+  </ul>
+   
+   

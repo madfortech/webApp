@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Faq{% endblock %}
+
+{% block body %}
+
+<div class="container mx-auto max-w-7xl py-6 px-4">
+    <h1 class="text-2xl font-bold mb-6">Add New Faq</h1>
+    <div class="item lg:w-3/6 py-6 px-4 border border-gray-300">
+        {{ include('faq/_form.html.twig') }}
+    </div>
+    <div class="item lg:w-3/6 py-6 px-4 border border-gray-300">
+        <a href="{{ path('app_faq_index') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded">Back to list</a>
+    </div>
+</div>
+ 
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+<style>
+    .container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .item:nth-child(2) {
+    flex-grow: 1;
+    flex-shrink: 1;
+    order: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            flex-direction: column;
+        }
+        
+    }
+</style>
+
+<div class="flex gap-[20px] container mx-auto max-w-7xl py-6 px-4">
+    <div data-controller="sidemenu" class="w-[200px]">
+        <h1 class="text-2xl font-bold py-2 px-4 border-b border-gray-300 mb-2">Dashboard</h1>
+        {% include 'sidebar/side-menu.html.twig' %}
+    </div>
+    <div class="grow shrink order-none lg:grid grid-cols-2 grid-flow-col gap-4">
+        <div class="flex items-center py-2 px-2 border mb-2">
+             
+            <div class="text-sm">
+              <p class="text-black leading-none text-2xl capitalize">users</p>
+              <p class="text-grey-600 py-2 font-bold">{{ userCount }}</p>
+              <a href="{{ path('app_user') }}" class="text-blue-600">View</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
